@@ -44,7 +44,7 @@ export function OfficialNoticePopup() {
                 id="official-notice-title"
                 className="mt-2 text-2xl font-bold text-slate-950"
               >
-                Este site não pertence da Focus/Clinic All
+                Este site não pertence a Focus/Clinic All
               </h2>
             </div>
           </div>
