@@ -83,6 +83,20 @@ export const tutorials: Tutorial[] = [
     hasImageTutorial: false,
     imageTutorialUrl: '#imagens',
   },
+  {
+    id: 'web-004',
+    slug: 'modulo-financeiro',
+    title: 'Modulo Financeiro',
+    description:
+      'Conheça a rotina básica de uso do módulo financeiro do Clinic All, explorando as principais funcionalidades para controle e acompanhamento das movimentações financeiras da clínica.',
+    app: 'web',
+    category: 'Cadastro',
+    level: 'avançado',
+    duration: '17 min',
+    youtubeId: 'dz_4g9ghj2g',
+    hasImageTutorial: false,
+    imageTutorialUrl: '#imagens',
+  },
   // {
   //   id: 'web-002',
   //   slug: 'como-cadastrar-um-paciente-web',
