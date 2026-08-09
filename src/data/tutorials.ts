@@ -121,7 +121,7 @@ export const tutorials: Tutorial[] = [
     category: 'Cadastro',
     level: 'básico',
     duration: '3 min',
-    youtubeId: 'ytRbOmEZS_g',
+    youtubeId: 'pOb-8Cv248g',
     hasImageTutorial: false,
     imageTutorialUrl: '#imagens',
   },
