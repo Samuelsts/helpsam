@@ -113,7 +113,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-006',
-    slug: 'como-cadastrar-médicos-e-profissionais',
+    slug: 'como-cadastrar-medicos-e-profissionais',
     title: 'Como cadastrar médicos e profissionais',
     description:
       'Conheça a rotina básica de cadastro dos profissionais de saúde, registrando suas informações essenciais no sistema.',
