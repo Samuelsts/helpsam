@@ -126,9 +126,9 @@ export const tutorials: Tutorial[] = [
     imageTutorialUrl: '#imagens',
   },
   {
-    id: 'web-00',
-    slug: 'como-cadastrar-medicos-e-profissionais',
-    title: 'Como cadastrar médicos e profissionais',
+    id: 'web-007',
+    slug: 'como-cadastrar-usuarios',
+    title: 'Como cadastrar usuários',
     description:
       'Aprenda a rotina básica de criação e configuração de usuários, definindo acessos dentro do Clinic All.',
     app: 'web',
