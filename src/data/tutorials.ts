@@ -125,6 +125,20 @@ export const tutorials: Tutorial[] = [
     hasImageTutorial: false,
     imageTutorialUrl: '#imagens',
   },
+  {
+    id: 'web-00',
+    slug: 'como-cadastrar-medicos-e-profissionais',
+    title: 'Como cadastrar médicos e profissionais',
+    description:
+      'Aprenda a rotina básica de criação e configuração de usuários, definindo acessos dentro do Clinic All.',
+    app: 'web',
+    category: 'Cadastro',
+    level: 'básico',
+    duration: '3 min',
+    youtubeId: 't-a0BQt46dE',
+    hasImageTutorial: false,
+    imageTutorialUrl: '#imagens',
+  },
   // {
   //   id: 'web-002',
   //   slug: 'como-cadastrar-um-paciente-web',
