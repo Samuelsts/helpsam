@@ -58,7 +58,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-002',
-    slug: 'como-cadastrar-procedimento',
+    slug: 'como-cadastrar-procedimento-web',
     title: 'Como cadastrar procedimento',
     description: 'Veja o fluxo básico para cadastrar um procedimento.',
     app: 'web',
@@ -71,7 +71,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-003',
-    slug: 'como-registrar-atendimento-no-particular',
+    slug: 'como-registrar-atendimento-no-particular-web',
     title: 'Como registrar atendimentos no particular',
     description:
       'Veja o fluxo de como registrar um atendimento particular no sistema.',
@@ -85,7 +85,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-004',
-    slug: 'modulo-financeiro',
+    slug: 'modulo-financeiro-web',
     title: 'Modulo Financeiro',
     description:
       'Conheça a rotina básica de uso do módulo financeiro do Clinic All, explorando as principais funcionalidades para controle e acompanhamento das movimentações financeiras da clínica.',
@@ -99,7 +99,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-005',
-    slug: 'como-registrar-atendimento-dos-convenios',
+    slug: 'como-registrar-atendimento-dos-convenios-web',
     title: 'Como registrar atendimentos dos convênios',
     description:
       'Veja na prática a rotina básica de registro de um atendimento de convênio, desde a abertura até a finalização do serviço prestado ao paciente.',
@@ -113,7 +113,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-006',
-    slug: 'como-cadastrar-medicos-e-profissionais',
+    slug: 'como-cadastrar-medicos-e-profissionais-web',
     title: 'Como cadastrar médicos e profissionais',
     description:
       'Conheça a rotina básica de cadastro dos profissionais de saúde, registrando suas informações essenciais no sistema.',
@@ -127,7 +127,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-007',
-    slug: 'como-cadastrar-usuarios',
+    slug: 'como-cadastrar-usuarios-web',
     title: 'Como cadastrar usuários',
     description:
       'Aprenda a rotina básica de criação e configuração de usuários, definindo acessos dentro do Clinic All.',
@@ -141,7 +141,7 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: 'web-008',
-    slug: 'evolucoes-e-agenda-profissional',
+    slug: 'evolucoes-e-agenda-profissional-web',
     title: 'Evoluções e agenda profissional',
     description:
       'Neste vídeo, acompanhe a rotina básica de registro de evoluções e gerenciamento da agenda profissional no Clinic All Web.',
@@ -151,6 +151,20 @@ export const tutorials: Tutorial[] = [
     duration: '7 min',
     youtubeId: 'YbaEoqSa8UE',
     hasImageTutorial: false,
+    imageTutorialUrl: '#imagens',
+  },
+  {
+    id: 'web-009',
+    slug: 'como-consultar-agenda-e-marcacoes-web',
+    title: 'Como consultar agenda e marcações ',
+    description:
+      'Aprenda a navegar por datas, localizar horários e conferir detalhes de agendamento.',
+    app: 'web',
+    category: 'Agenda',
+    level: 'intermediário',
+    duration: '8 min',
+    youtubeId: 'SxZB89pYBoE',
+    hasImageTutorial: true,
     imageTutorialUrl: '#imagens',
   },
   // {
@@ -165,20 +179,6 @@ export const tutorials: Tutorial[] = [
   //   duration: '7 min',
   //   youtubeId: 'ysz5S6PUM-U',
   //   hasImageTutorial: false,
-  // },
-  // {
-  //   id: 'web-003',
-  //   slug: 'como-consultar-agenda-web',
-  //   title: 'Como consultar agenda',
-  //   description:
-  //     'Aprenda a navegar por datas, localizar horários e conferir detalhes de agendamento.',
-  //   app: 'web',
-  //   category: 'Agenda',
-  //   level: 'intermediário',
-  //   duration: '6 min',
-  //   youtubeId: 'jNQXAC9IVRw',
-  //   hasImageTutorial: true,
-  //   imageTutorialUrl: '#imagens',
   // },
   // {
   //   id: 'web-004',
