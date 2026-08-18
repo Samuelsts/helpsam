@@ -167,6 +167,20 @@ export const tutorials: Tutorial[] = [
     hasImageTutorial: true,
     imageTutorialUrl: '#imagens',
   },
+  {
+    id: 'web-010',
+    slug: 'abertura-de-agenda-dos-profissionais-web',
+    title: 'Abertura de Agenda dos profissionais',
+    description:
+      'Acompanhe a rotina básica de configuração e abertura da agenda dos profissionais para receber agendamentos no sistema Clinic All Web.',
+    app: 'web',
+    category: 'Agenda',
+    level: 'intermediário',
+    duration: '4 min',
+    youtubeId: '9i2FNtgEqgs',
+    hasImageTutorial: true,
+    imageTutorialUrl: '#imagens',
+  },
   // {
   //   id: 'web-002',
   //   slug: 'como-cadastrar-um-paciente-web',
