@@ -210,7 +210,7 @@ export const tutorials: Tutorial[] = [
   {
     id: 'web-013',
     slug: 'como-cadastrar-e-configurar-participacao-honorarios-dos-profissionais-web',
-    title: 'Configuração participação/honorários dos profissionais',
+    title: 'Configuração honorários dos profissionais',
     description:
       'Entenda a rotina básica de inclusão e configuração da participação financeira dos profissionais nos atendimentos realizados pela clínica.',
     app: 'web',
@@ -223,7 +223,7 @@ export const tutorials: Tutorial[] = [
   {
     id: 'web-014',
     slug: 'como-gerar-e-consultar-relatorios-de-atendimento-web',
-    title: 'Como gerar e consulta realatórios de atendimento',
+    title: 'Como gerar e consultar realatórios de atendimento',
     description:
       'Nesse vídeo, veja como realizar a rotina básica de consulta e geração do relatório de atendimentos realizados em um determinado período..',
     app: 'web',
@@ -272,46 +272,7 @@ export const tutorials: Tutorial[] = [
     hasImageTutorial: false,
     imageTutorialUrl: '#imagens',
   },
-  // {
-  //   id: 'desktop-002',
-  //   slug: 'como-localizar-um-atendimento-desktop',
-  //   title: 'Como localizar um atendimento',
-  //   description:
-  //     'Use filtros e informações de apoio para encontrar atendimentos já registrados.',
-  //   app: 'desktop',
-  //   category: 'Atendimento',
-  //   level: 'intermediário',
-  //   duration: '8 min',
-  //   youtubeId: 'ysz5S6PUM-U',
-  //   hasImageTutorial: false,
-  // },
-  // {
-  //   id: 'desktop-003',
-  //   slug: 'como-emitir-um-relatorio-desktop',
-  //   title: 'Como emitir um relatório',
-  //   description:
-  //     'Entenda a escolha de filtros, geração e conferência de relatórios operacionais.',
-  //   app: 'desktop',
-  //   category: 'Relatórios',
-  //   level: 'avançado',
-  //   duration: '10 min',
-  //   youtubeId: 'jNQXAC9IVRw',
-  //   hasImageTutorial: true,
-  //   imageTutorialUrl: '#imagens',
-  // },
-  // {
-  //   id: 'desktop-004',
-  //   slug: 'como-alterar-dados-de-cadastro-desktop',
-  //   title: 'Como alterar dados de um cadastro',
-  //   description:
-  //     'Veja uma rotina genérica para atualizar dados e revisar alterações no desktop.',
-  //   app: 'desktop',
-  //   category: 'Cadastros',
-  //   level: 'intermediário',
-  //   duration: '6 min',
-  //   youtubeId: 'dQw4w9WgXcQ',
-  //   hasImageTutorial: false,
-  // },
+  
 ];
 
 export function getTutorialsByApp(app: ClinicAllApp) {
