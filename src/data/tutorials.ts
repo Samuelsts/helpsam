@@ -210,15 +210,27 @@ export const tutorials: Tutorial[] = [
   {
     id: 'web-013',
     slug: 'como-cadastrar-e-configurar-participacao-honorarios-dos-profissionais-web',
-    title:
-      'Como cadastrar e configurar participação/honorários dos profissionais',
+    title: 'Configuração participação/honorários dos profissionais',
     description:
       'Entenda a rotina básica de inclusão e configuração da participação financeira dos profissionais nos atendimentos realizados pela clínica.',
     app: 'web',
     category: 'Cadastros',
     level: 'intermediário',
-    duration: '5 min',
+    duration: '4 min',
     youtubeId: 'MhOwoQ0XQyo',
+    hasImageTutorial: false,
+  },
+  {
+    id: 'web-014',
+    slug: 'como-gerar-e-consultar-relatorios-de-atendimento-web',
+    title: 'Como gerar e consulta realatórios de atendimento',
+    description:
+      'Nesse vídeo, veja como realizar a rotina básica de consulta e geração do relatório de atendimentos realizados em um determinado período..',
+    app: 'web',
+    category: 'Relatórios',
+    level: 'básico',
+    duration: '4 min',
+    youtubeId: 'fk3oioWArZo',
     hasImageTutorial: false,
   },
   {
