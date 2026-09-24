@@ -210,7 +210,7 @@ export const tutorials: Tutorial[] = [
   {
     id: 'web-013',
     slug: 'como-cadastrar-e-configurar-participacao-honorarios-dos-profissionais-web',
-    title: 'Configuração honorários dos profissionais',
+    title: 'Configuração dos honorários dos profissionais',
     description:
       'Entenda a rotina básica de inclusão e configuração da participação financeira dos profissionais nos atendimentos realizados pela clínica.',
     app: 'web',
@@ -223,7 +223,7 @@ export const tutorials: Tutorial[] = [
   {
     id: 'web-014',
     slug: 'como-gerar-e-consultar-relatorios-de-atendimento-web',
-    title: 'Como gerar e consultar realatórios de atendimento',
+    title: 'Como gerar e consultar relatórios de atendimento',
     description:
       'Nesse vídeo, veja como realizar a rotina básica de consulta e geração do relatório de atendimentos realizados em um determinado período..',
     app: 'web',
@@ -272,7 +272,6 @@ export const tutorials: Tutorial[] = [
     hasImageTutorial: false,
     imageTutorialUrl: '#imagens',
   },
-  
 ];
 
 export function getTutorialsByApp(app: ClinicAllApp) {
