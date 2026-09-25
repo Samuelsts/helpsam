@@ -3,11 +3,12 @@ export type ClinicAllApp = "web" | "desktop";
 export type TutorialLevel = "básico" | "intermediário" | "avançado";
 
 export const categoryOrder = [
-  "Acesso",
-  "Cadastros",
+  "Recepção",
+  "Operacional",
   "Agenda",
-  "Atendimento",
+  "Modulo Médico",
   "Financeiro",
+  "Faturamento",
   "Relatórios",
 ] as const;
 
@@ -60,7 +61,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Veja o fluxo básico para entrar no ambiente web e localizar a tela inicial.",
     app: "web",
-    category: "Acesso",
+    category: "Operacional",
     level: "básico",
     duration: "2 min",
     youtubeId: "7yBtwbKHQgU",
@@ -74,7 +75,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Neste vídeo, acompanhe a rotina básica de cadastro de pacientes, preenchendo as principais informações necessárias para o registro no sistema.",
     app: "web",
-    category: "Cadastros",
+    category: "Recepção",
     level: "básico",
     duration: "4 min",
     youtubeId: "c6Z0SEnPViA",
@@ -87,7 +88,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Veja o fluxo de como registrar um atendimento particular no sistema.",
     app: "web",
-    category: "Cadastros",
+    category: "Recepção",
     level: "intermediário",
     duration: "5 min",
     youtubeId: "ZgFUWfvq4JI",
@@ -115,7 +116,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Veja na prática a rotina básica de registro de um atendimento de convênio, desde a abertura até a finalização do serviço prestado ao paciente.",
     app: "web",
-    category: "Cadastros",
+    category: "Recepção",
     level: "intermediário",
     duration: "6 min",
     youtubeId: "ytRbOmEZS_g",
@@ -129,7 +130,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Conheça a rotina básica de cadastro dos profissionais de saúde, registrando suas informações essenciais no sistema.",
     app: "web",
-    category: "Cadastros",
+    category: "Operacional",
     level: "básico",
     duration: "3 min",
     youtubeId: "5m6YUeEIL6s",
@@ -143,7 +144,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Aprenda a rotina básica de criação e configuração de usuários, definindo acessos dentro do Clinic All.",
     app: "web",
-    category: "Cadastros",
+    category: "Operacional",
     level: "básico",
     duration: "3 min",
     youtubeId: "t-a0BQt46dE",
@@ -157,7 +158,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Neste vídeo, acompanhe a rotina básica de registro de evoluções e gerenciamento da agenda profissional no Clinic All Web.",
     app: "web",
-    category: "Atendimento",
+    category: "Modulo Médico",
     level: "básico",
     duration: "7 min",
     youtubeId: "YbaEoqSa8UE",
@@ -185,7 +186,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Acompanhe a rotina básica de configuração e abertura da agenda dos profissionais para receber agendamentos no sistema Clinic All Web.",
     app: "web",
-    category: "Agenda",
+    category: "Operacional",
     level: "intermediário",
     duration: "4 min",
     youtubeId: "9i2FNtgEqgs",
@@ -198,7 +199,7 @@ export const tutorials: Tutorial[] = [
     title: "Como cadastrar procedimento",
     description: "Veja o fluxo básico para cadastrar um procedimento.",
     app: "web",
-    category: "Cadastros",
+    category: "Operacional",
     level: "intermediário",
     duration: "2 min",
     youtubeId: "C0Hi05ic5Yc",
@@ -212,7 +213,7 @@ export const tutorials: Tutorial[] = [
     description:
       "Nesse vídeo, aprenda como executar a rotina básica de edição do valor de um serviço no sistema.",
     app: "web",
-    category: "Cadastros",
+    category: "Operacional",
     level: "intermediário",
     duration: "2 min",
     youtubeId: "zPTyWIhLRac",
@@ -221,11 +222,11 @@ export const tutorials: Tutorial[] = [
   {
     id: "web-013",
     slug: "como-cadastrar-e-configurar-participacao-honorarios-dos-profissionais-web",
-    title: "Honorários (participação) dos profissionais",
+    title: "Honorários (participação/repasse) dos profissionais",
     description:
       "Entenda a rotina básica de inclusão e configuração da participação financeira dos profissionais nos atendimentos realizados pela clínica.",
     app: "web",
-    category: "Cadastros",
+    category: "Operacional",
     level: "intermediário",
     duration: "4 min",
     youtubeId: "MhOwoQ0XQyo",
@@ -233,6 +234,19 @@ export const tutorials: Tutorial[] = [
   },
   {
     id: "web-014",
+    slug: "como-realizar-o-faturamento-de-convenios-web",
+    title: "Como realizar o faturamento dos convênios (Geração XML)",
+    description:
+      "Veja a rotina básica de faturamento e geração de arquivo XML no sistema Clinic All.",
+    app: "web",
+    category: "Faturamento",
+    level: "intermediário",
+    duration: "8 min",
+    youtubeId: "ai_i-lx0tbo",
+    hasImageTutorial: false,
+  },
+  {
+    id: "web-015",
     slug: "como-gerar-e-consultar-relatorios-de-atendimento-web",
     title: "Como gerar e consultar relatórios de atendimento",
     description:
@@ -250,7 +264,7 @@ export const tutorials: Tutorial[] = [
     title: "Como cadastrar paciente",
     description: "Saiba como realizar o cadastro de um paciente no sistema",
     app: "desktop",
-    category: "Cadastros",
+    category: "Recepção",
     level: "básico",
     duration: "1 min",
     youtubeId: "xYxuKBMdhoQ",
@@ -263,7 +277,7 @@ export const tutorials: Tutorial[] = [
     title: "Como cadastrar usúario",
     description: "Saiba como realizar o cadastro de um usúario no sistema",
     app: "desktop",
-    category: "Cadastros",
+    category: "Operacional",
     level: "básico",
     duration: "5 min",
     youtubeId: "BHPFp3CE4oU",
@@ -276,7 +290,7 @@ export const tutorials: Tutorial[] = [
     title: "Como cadastrar procedimento",
     description: "Saiba como realizar o cadastro de um procedimento no sistema",
     app: "desktop",
-    category: "Cadastros",
+    category: "Operacional",
     level: "intermediário",
     duration: "1 min",
     youtubeId: "5lJPa3uFTb8",
