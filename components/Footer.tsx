@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
+import CookiePreferencesLink from "@/components/CookiePreferencesLink";
 
 const footerLinks = [
   { href: "/", label: "Início" },
@@ -7,8 +8,11 @@ const footerLinks = [
   { href: "/desktop", label: "Clinic All Desktop" },
   { href: "/termos", label: "Termos de uso" },
   { href: "/privacidade", label: "Privacidade" },
-  { href: "https://samlabs.com.br", label: "Conheça o SAM" }
+  { href: "https://samlabs.com.br", label: "Conheça o SAM" },
 ];
+
+const linkClass =
+  "rounded-full px-4 py-2 text-sm font-semibold text-slate-600 outline-none hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-blue-500";
 
 export function Footer() {
   return (
@@ -19,24 +23,27 @@ export function Footer() {
             <BookOpenCheck className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
-            <p className="text-sm font-bold text-slate-950">Tutoriais Clinic All</p>
+            <p className="text-sm font-bold text-slate-950">
+              Tutoriais Clinic All
+            </p>
             <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
-              Biblioteca independente de apoio com tutoriais em vídeo e imagem. Este site não é
-              oficial da Focus ou do Clinic All e não oferece suporte pela plataforma.
+              Biblioteca independente de apoio com tutoriais em vídeo e imagem.
+              Este site não é oficial da Focus ou do Clinic All e não oferece
+              suporte pela plataforma.
             </p>
           </div>
         </div>
 
-        <nav className="flex flex-wrap gap-2 md:justify-end" aria-label="Links do rodapé">
+        <nav
+          className="flex flex-wrap gap-2 md:justify-end"
+          aria-label="Links do rodapé"
+        >
           {footerLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 outline-none hover:bg-slate-100 hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-blue-500"
-            >
+            <Link key={link.href} href={link.href} className={linkClass}>
               {link.label}
             </Link>
           ))}
+          <CookiePreferencesLink className={linkClass} />
         </nav>
       </div>
     </footer>

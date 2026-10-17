@@ -5,52 +5,56 @@ import { Header } from "@/components/Header";
 const sections = [
   {
     title: "1. Natureza independente",
-    body: "Este site é uma plataforma independente de apoio, criada para organizar tutoriais e materiais informativos. Ele não é um site oficial da Focus, do Clinic All ou de qualquer canal oficial de suporte."
+    body: "Este site é uma plataforma independente de apoio, mantida por Samuel J. Santos, que organiza tutoriais e materiais informativos sobre o sistema Clinic All. O mantenedor é colaborador da Focus Tecnologia em Sistema e criou os tutoriais com autorização da empresa, mas o site não é oficial, não é patrocinado pela Focus e não substitui seus canais de suporte.",
   },
   {
-    title: "2. Ausência de suporte pela plataforma",
-    body: "A plataforma não oferece atendimento técnico, abertura de chamados, garantia de resposta, suporte operacional ou acompanhamento de problemas. Em caso de dúvidas ou falhas, o usuário deve procurar os canais oficiais de suporte."
+    title: "2. Marcas e sistemas de terceiros",
+    body: "Clinic All, Focus e demais nomes, logotipos e telas do sistema pertencem à Focus Tecnologia em Sistema (CNPJ 02.459.271/0001-35, Salvador/BA, focusts.com.br) e são citados apenas para identificar o software a que os tutoriais se referem. Os exemplos exibidos nos vídeos utilizam dados fictícios.",
   },
   {
-    title: "3. Finalidade voluntária",
-    body: "O conteúdo foi desenvolvido por um colaborador com finalidade voluntária e não remunerada, apenas para auxiliar clientes com materiais de consulta. As informações podem ser alteradas, removidas ou ficar desatualizadas sem aviso prévio."
+    title: "3. Suporte oficial",
+    body: "Esta plataforma não oferece atendimento técnico, abertura de chamados, garantia de resposta, suporte operacional ou acompanhamento de problemas. Para suporte, use os canais oficiais da Focus: focusts.com.br ou telefone (71) 3343-3850.",
   },
   {
-    title: "4. Uso das informações",
-    body: "Os tutoriais têm finalidade educativa e de apoio. O usuário é responsável por conferir se as orientações fazem sentido para sua rotina e deve priorizar instruções oficiais sempre que houver divergência."
+    title: "4. Natureza do conteúdo, anúncios e monetização",
+    body: "O conteúdo tem finalidade educativa e de apoio e pode ser alterado, removido ou ficar desatualizado sem aviso prévio. Este site é mantido sem patrocínio, remuneração ou apoio financeiro da Focus. Para custear o projeto, o mantenedor pode exibir anúncios (Google AdSense) e monetizar os vídeos no YouTube, quando elegível. Os anúncios não indicam recomendação nem vínculo com os anunciantes.",
   },
   {
-    title: "5. Restrições de uso do conteúdo",
-    body: "Os materiais disponibilizados nesta plataforma não podem ser baixados, copiados, reproduzidos ou comercializados sem autorização. O conteúdo é disponibilizado exclusivamente para consulta online e pode ser adicionado, modificado ou removido sem aviso prévio."
+    title: "5. Uso das informações",
+    body: "O usuário é responsável por conferir se as orientações fazem sentido para a sua rotina e deve priorizar as instruções oficiais da Focus sempre que houver divergência.",
   },
   {
-    title: "6. Privacidade e LGPD",
-    body: "Este site não possui login, cadastro, coleta de CPF, dados financeiros ou informações sensíveis. A única preferência salva localmente é a escolha entre Clinic All Web e Clinic All Desktop, além da confirmação de leitura do aviso inicial — armazenadas via localStorage no próprio navegador. Serviços incorporados de terceiros (como vídeos e anúncios) podem utilizar cookies próprios, conforme suas políticas."
+    title: "6. Restrições de uso do conteúdo",
+    body: "Os tutoriais produzidos nesta plataforma são protegidos por direitos autorais e não podem ser baixados, copiados, reproduzidos ou comercializados sem autorização. São disponibilizados exclusivamente para consulta online. Marcas e telas de terceiros permanecem de propriedade de seus titulares.",
   },
   {
-    title: "7. Anúncios e terceiros",
-    body: "A plataforma reserva espaços para anúncios, que podem não estar ativos em todos os momentos. Quando ativados, inclusive por serviços como Google AdSense, terceiros poderão utilizar cookies, endereço IP, dados do navegador e localização aproximada para exibição e mensuração de publicidade, conforme suas próprias políticas de privacidade."
+    title: "7. Remoção de conteúdo",
+    body: "Se a Focus ou qualquer titular de direitos solicitar a remoção de um conteúdo, ele será removido, sem necessidade de aviso prévio aos usuários.",
   },
   {
-    title: "8. Controle do usuário sobre cookies",
-    body: "Como este site não possui login nem cadastro, não há criação de perfil interno de usuário pela plataforma. Ainda assim, provedores externos de anúncios podem tratar dados técnicos para exibição, medição e personalização de publicidade. O usuário pode gerenciar cookies, permissões e preferências de privacidade diretamente no navegador ou nas ferramentas oferecidas pelos provedores."
+    title: "8. Privacidade e LGPD",
+    body: "Este site não possui login, cadastro nem coleta de CPF, dados financeiros ou informações sensíveis. Armazenamos localmente no seu navegador (localStorage) apenas suas preferências: a escolha entre Clinic All Web ou Desktop, a confirmação de leitura do aviso inicial e a sua escolha sobre cookies. O tratamento de dados está detalhado na Política de Privacidade.",
   },
   {
-    title: "9. Responsabilidade sobre serviços de terceiros",
-    body: "Links, vídeos incorporados (YouTube) e anúncios envolvem serviços externos que possuem suas próprias políticas de privacidade. Esta plataforma não controla as práticas desses terceiros e recomenda que o usuário consulte as políticas oficiais de cada serviço."
+    title: "9. Anúncios, cookies e consentimento",
+    body: 'Os anúncios (Google AdSense) e seus cookies e identificadores só são ativados se você aceitar no banner de cookies. Antes da sua escolha, e se você recusar, nenhum script de publicidade é carregado. Você pode alterar a decisão a qualquer momento em "Preferências de cookies", no rodapé. Quando ativos, terceiros podem tratar endereço IP, dados do navegador e localização aproximada para exibir e medir publicidade, conforme as políticas deles.',
   },
   {
-    title: "10. Limitações",
-    body: "Não há garantia de disponibilidade contínua, atualização permanente, correção integral das informações ou compatibilidade com todas as versões do sistema. O uso do conteúdo é feito por conta e responsabilidade do usuário."
+    title: "10. Serviços de terceiros e limitações",
+    body: "Links, vídeos incorporados (YouTube) e anúncios envolvem serviços externos com políticas próprias, que esta plataforma não controla. Não há garantia de disponibilidade contínua, atualização permanente, correção integral das informações ou compatibilidade com todas as versões do sistema. O uso do conteúdo é por conta e responsabilidade do usuário.",
   },
   {
-    title: "11. Alterações destes termos",
-    body: "Estes termos podem ser atualizados conforme a plataforma evoluir. Alterações relevantes — especialmente aquelas que envolvam coleta ou tratamento de dados — serão sinalizadas na própria plataforma. O uso continuado após qualquer atualização implica concordância com os novos termos."
+    title: "11. Legislação",
+    body: "Estes termos são regidos pela legislação brasileira.",
   },
   {
-    title: "12. Contato",
-    body: "Em caso de dúvidas sobre estes termos ou sobre privacidade, entre em contato pelo e-mail: contatosam.info@gmail.com"
-  }
+    title: "12. Alterações destes termos",
+    body: "Estes termos podem ser atualizados conforme a plataforma evoluir, e a nova versão vale a partir da publicação. O uso continuado após a atualização indica concordância com os Termos. Mudanças que envolvam cookies ou anúncios dependem de nova escolha sua no banner.",
+  },
+  {
+    title: "13. Contato",
+    body: "Dúvidas sobre estes termos ou sobre privacidade: contatosam.info@gmail.com",
+  },
 ];
 
 export default function TermsPage() {
@@ -71,10 +75,11 @@ export default function TermsPage() {
                 Termos de Uso
               </h1>
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                Leia as condições básicas de uso desta plataforma independente de tutoriais.
+                Leia as condições básicas de uso desta plataforma independente
+                de tutoriais.
               </p>
               <p className="mt-4 text-sm font-semibold text-slate-500">
-                Última atualização: 30/07/2026
+                Última atualização: 16/10/2026
               </p>
             </div>
           </div>
@@ -87,8 +92,12 @@ export default function TermsPage() {
                 key={section.title}
                 className="animate-fade-up rounded-3xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-white/70"
               >
-                <h2 className="text-lg font-bold text-slate-950">{section.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{section.body}</p>
+                <h2 className="text-lg font-bold text-slate-950">
+                  {section.title}
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {section.body}
+                </p>
               </article>
             ))}
           </div>
