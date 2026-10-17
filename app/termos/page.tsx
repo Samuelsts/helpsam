@@ -1,6 +1,13 @@
 import { ShieldCheck } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Termos de Uso",
+  description:
+    "Condições de uso desta plataforma independente de tutoriais do Clinic All Web e Desktop.",
+};
 
 const sections = [
   {

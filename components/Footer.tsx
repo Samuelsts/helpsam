@@ -6,6 +6,8 @@ const footerLinks = [
   { href: "/", label: "Início" },
   { href: "/web", label: "Clinic All Web" },
   { href: "/desktop", label: "Clinic All Desktop" },
+  { href: "/sobre", label: "Sobre" },
+  { href: "/contato", label: "Contato" },
   { href: "/termos", label: "Termos de uso" },
   { href: "/privacidade", label: "Privacidade" },
   { href: "https://samlabs.com.br", label: "Conheça o SAM" },
