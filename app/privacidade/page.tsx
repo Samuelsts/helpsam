@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: "5. Vídeos incorporados (YouTube)",
-    body: "Os vídeos são incorporados em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar ou reproduzir um vídeo, o YouTube (Google LLC) pode receber seu endereço IP e dados do dispositivo e, na reprodução, definir cookies e registrar interações, conforme a política disponível em policies.google.com/privacy.",
+    body: "Os vídeos são incorporados em modo de privacidade aprimorada (youtube-nocookie.com) e só são carregados quando você clica em reproduzir. Ao reproduzir, o YouTube (Google LLC) pode receber seu endereço IP e dados do dispositivo, definir cookies e registrar interações, conforme a política disponível em policies.google.com/privacy.",
   },
   {
     title: "6. Cookies de terceiros",
