@@ -6,8 +6,14 @@ import ConsentBanner from "@/components/ConsentBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const adsClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+
 export const metadata: Metadata = {
-  title: "Tutoriais Clinic All | Guias em vídeo",
+  metadataBase: new URL("https://help.samlabs.com.br"),
+  title: {
+    default: "Tutoriais Clinic All | Guias em vídeo",
+    template: "%s | Tutoriais Clinic All",
+  },
   description:
     "Página independente com tutoriais práticos em vídeo e imagem para usuários do Clinic All Web e Clinic All Desktop.",
   openGraph: {
@@ -17,6 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
   },
+  other: adsClient ? { "google-adsense-account": adsClient } : undefined,
 };
 
 export default function RootLayout({

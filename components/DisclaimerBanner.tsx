@@ -1,4 +1,4 @@
-import { ShieldAlert } from 'lucide-react';
+import { ShieldAlert } from "lucide-react";
 
 export function DisclaimerBanner() {
   return (
@@ -9,10 +9,9 @@ export function DisclaimerBanner() {
           aria-hidden="true"
         />
         <p>
-          Esta plataforma é independente. O conteúdo é apenas
-          auxiliar e voluntário. Para suporte técnico, utilize os canais
-          oficiais da empresa. Ao continuar navegando, você concorda com os
-          Termos de Uso.
+          Esta plataforma é independente e não oficial. O conteúdo é apenas
+          auxiliar. Para suporte técnico, utilize os canais oficiais da Focus.
+          Consulte os Termos de Uso.
         </p>
       </div>
     </section>
