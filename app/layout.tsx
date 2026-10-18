@@ -34,16 +34,18 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <Script id="consent-default" strategy="beforeInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('consent','default',{
-            ad_storage:'denied', ad_user_data:'denied',
-            ad_personalization:'denied', analytics_storage:'denied',
-            wait_for_update:500
-          });
-        `}</Script>
+        {adsClient ? (
+          <Script id="consent-default" strategy="beforeInteractive">{`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent','default',{
+              ad_storage:'denied', ad_user_data:'denied',
+              ad_personalization:'denied', analytics_storage:'denied',
+              wait_for_update:500
+            });
+          `}</Script>
+        ) : null}
       </head>
       <body className={inter.className}>
         {children}

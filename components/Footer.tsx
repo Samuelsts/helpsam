@@ -45,7 +45,9 @@ export function Footer() {
               {link.label}
             </Link>
           ))}
-          <CookiePreferencesLink className={linkClass} />
+           {process.env.NEXT_PUBLIC_ADSENSE_CLIENT ? (
+            <CookiePreferencesLink className={linkClass} />
+          ) : null}
         </nav>
       </div>
     </footer>
