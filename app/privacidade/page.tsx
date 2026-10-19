@@ -20,7 +20,7 @@ const sections = [
   },
   {
     title: "3. Infraestrutura",
-    body: "A hospedagem é da Vercel (vercel.com/legal/privacy-policy), que pode registrar dados técnicos de acesso para operação, segurança e diagnóstico (base legal: legítimo interesse, art. 7º, IX, da LGPD). O Cloudflare (cloudflare.com/privacypolicy) é usado apenas como serviço de DNS, isto é, para resolver o endereço do site.",
+    body: "A hospedagem e a entrega do site são feitas pela Cloudflare (cloudflare.com/privacypolicy), por meio do Cloudflare Pages e da sua rede de distribuição (CDN). Ao acessar o site, a Cloudflare pode registrar dados técnicos da requisição, como endereço IP, tipo de navegador e páginas acessadas, para operação, desempenho, segurança e proteção contra ataques (base legal: legítimo interesse, art. 7º, IX, da LGPD). A Cloudflare também é responsável pelo DNS do domínio.",
   },
   {
     title: "4. Anúncios e cookies (Google AdSense)",
@@ -36,7 +36,7 @@ const sections = [
   },
   {
     title: "7. Compartilhamento e transferência internacional",
-    body: "Não vendemos nem repassamos dados a terceiros por iniciativa própria. Os dados técnicos chegam à Vercel, ao Cloudflare e ao Google em razão do uso dos serviços deles, que os tratam conforme suas próprias políticas. Esses prestadores podem processar dados fora do Brasil, com base em suas cláusulas e políticas de proteção de dados (art. 33 da LGPD).",
+    body: "Não vendemos nem repassamos dados a terceiros por iniciativa própria. Os dados técnicos chegam à Cloudflare e ao Google em razão do uso dos serviços deles, que os tratam conforme suas próprias políticas. Esses prestadores podem processar dados fora do Brasil, com base em suas cláusulas e políticas de proteção de dados (art. 33 da LGPD).",
   },
   {
     title: "8. Por quanto tempo",
@@ -44,7 +44,7 @@ const sections = [
   },
   {
     title: "9. Seus direitos (LGPD)",
-    body: "Nos termos da Lei 13.709/2018 (art. 18), você pode pedir confirmação do tratamento, acesso, correção, anonimização, eliminação, portabilidade, informação sobre compartilhamento e revogação do consentimento. Escreva para contatosam.info@gmail.com; respondemos em até 15 dias. Para dados mantidos por Vercel, Cloudflare ou Google, o pedido também deve ser feito diretamente a eles. Você pode ainda apresentar reclamação à ANPD (gov.br/anpd).",
+    body: "Nos termos da Lei 13.709/2018 (art. 18), você pode pedir confirmação do tratamento, acesso, correção, anonimização, eliminação, portabilidade, informação sobre compartilhamento e revogação do consentimento. Escreva para contatosam.info@gmail.com; respondemos em até 15 dias. Para dados mantidos pela Cloudflare ou pelo Google, o pedido também deve ser feito diretamente a eles. Você pode ainda apresentar reclamação à ANPD (gov.br/anpd).",
   },
   {
     title: "10. Encarregado (DPO)",
