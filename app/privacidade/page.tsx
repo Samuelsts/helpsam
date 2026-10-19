@@ -20,7 +20,7 @@ const sections = [
   },
   {
     title: "3. Infraestrutura",
-    body: "A hospedagem e a entrega do site são feitas pela Cloudflare (cloudflare.com/privacypolicy), por meio do Cloudflare Pages e da sua rede de distribuição (CDN). Ao acessar o site, a Cloudflare pode registrar dados técnicos da requisição, como endereço IP, tipo de navegador e páginas acessadas, para operação, desempenho, segurança e proteção contra ataques (base legal: legítimo interesse, art. 7º, IX, da LGPD). A Cloudflare também é responsável pelo DNS do domínio.",
+    body: "A hospedagem e a entrega do site são feitas pela Cloudflare (cloudflare.com/privacypolicy), por meio do Cloudflare Pages e da sua rede de distribuição (CDN). Ao acessar o site, a Cloudflare pode registrar dados técnicos da requisição, como endereço IP, tipo de navegador e páginas acessadas, para operação, desempenho, segurança e proteção contra ataques (base legal: legítimo interesse, art. 7º, IX, da LGPD). A Cloudflare também é responsável pelo DNS do domínio. Também usamos o Cloudflare Web Analytics, que mede de forma agregada o número de visitas e as páginas mais acessadas, sem cookies nem armazenamento local e sem ser usado para identificar você individualmente. Ele funciona independentemente do banner de cookies, com base em legítimo interesse (art. 7º, IX, da LGPD).",
   },
   {
     title: "4. Anúncios e cookies (Google AdSense)",
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
                 Entenda como esta plataforma trata (ou não trata) seus dados.
               </p>
               <p className="mt-4 text-sm font-semibold text-slate-500">
-                Última atualização: 16/10/2026
+                Última atualização: 19/10/2026
               </p>
             </div>
           </div>
