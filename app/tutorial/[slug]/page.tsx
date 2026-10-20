@@ -17,7 +17,7 @@ import {
 } from "@/src/data/tutorials";
 
 // Os espaços de anúncio só existem quando o AdSense estiver configurado.
-const showAds = Boolean(process.env.NEXT_PUBLIC_ADSENSE_CLIENT);
+const showAds = process.env.NEXT_PUBLIC_ADS_SLOTS === "1";
 
 function clip(text: string, max = 155) {
   const clean = text.replace(/\s+/g, " ").trim();
