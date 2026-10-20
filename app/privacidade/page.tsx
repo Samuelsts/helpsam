@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacidade",
   description:
-    "Condições de uso desta plataforma independente de tutoriais do Clinic All Web e Desktop.",
+    "Como esta plataforma trata seus dados: cookies, anúncios, vídeos incorporados e seus direitos pela LGPD.",
 };
 
 const sections = [
