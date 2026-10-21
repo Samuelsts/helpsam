@@ -1,18 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ShieldAlert } from "lucide-react";
 import { useEffect, useState } from "react";
 import { readConsent, saveConsent } from "@/lib/consent";
 
 const ADS_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-const LEGAL_PATHS = ["/termos", "/privacidade"];
+const NOTICE_KEY = "focusIndependentNoticeAccepted";
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
   }
+}
+
+function hasNotice(): boolean {
+  try {
+    return localStorage.getItem(NOTICE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function saveNotice(): void {
+  try {
+    localStorage.setItem(NOTICE_KEY, "true");
+  } catch {}
 }
 
 function setAdsConsent(granted: boolean) {
@@ -45,21 +58,29 @@ function clearAdCookies() {
   }
 }
 
+// Os dois botões usam exatamente a mesma classe: recusar não pode ser
+// visualmente mais difícil do que aceitar (Guia de Cookies da ANPD).
 const choiceClass =
-  "inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border-2 border-slate-950 bg-white px-5 py-2 text-sm font-bold text-slate-950 outline-none hover:bg-slate-950 hover:text-white focus-visible:ring-2 focus-visible:ring-blue-500";
+  "inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border-2 border-slate-950 bg-white px-5 py-2 text-sm font-bold text-slate-950 outline-none hover:bg-slate-950 hover:text-white focus-visible:ring-2 focus-visible:ring-blue-500 sm:flex-none";
 
 export default function ConsentBanner() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [reopened, setReopened] = useState(false);
 
   useEffect(() => {
-    const c = readConsent();
-    if (!c) setOpen(true);
-    else if (c.ads) {
+    if (!ADS_CLIENT) {
+      // Anúncios desligados: só o aviso de independência.
+      if (!hasNotice()) setOpen(true);
+      return;
+    }
+
+    const consent = readConsent();
+    if (!consent) setOpen(true);
+    else if (consent.ads) {
       setAdsConsent(true);
       loadAdsScript();
     }
+
     const reopen = () => {
       setReopened(true);
       setOpen(true);
@@ -67,6 +88,11 @@ export default function ConsentBanner() {
     window.addEventListener("open-consent", reopen);
     return () => window.removeEventListener("open-consent", reopen);
   }, []);
+
+  function acceptNoticeOnly() {
+    saveNotice();
+    setOpen(false);
+  }
 
   function choose(ads: boolean) {
     saveConsent(ads);
@@ -77,6 +103,7 @@ export default function ConsentBanner() {
       loadAdsScript();
     } else {
       clearAdCookies();
+      // um script já carregado não pode ser "descarregado": recarrega a página
       if (document.getElementById("adsense-js")) location.reload();
     }
   }
@@ -86,111 +113,109 @@ export default function ConsentBanner() {
     setReopened(false);
   }
 
-  const isLegalPage = LEGAL_PATHS.some((p) => pathname?.startsWith(p));
-  if (!open || (isLegalPage && !reopened)) return null;
+  if (!open) return null;
+
+  const adsMode = Boolean(ADS_CLIENT);
 
   return (
-    <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/55 p-4 backdrop-blur-sm"
-      role="dialog"
-      aria-modal="true"
+    <section
+      role="region"
       aria-labelledby="consent-title"
+      className="animate-fade-up fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur"
     >
-      <div className="flex min-h-full items-center justify-center py-6">
-        <section className="animate-scale-in w-full max-w-2xl rounded-3xl border border-white/70 bg-white p-6 shadow-2xl shadow-slate-950/20 sm:p-8">
-          <div className="flex items-start gap-4">
-            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-              <ShieldAlert className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wide text-blue-700">
-                {reopened ? "Privacidade" : "Aviso importante"}
-              </p>
-              <h2
-                id="consent-title"
-                className="mt-2 text-2xl font-bold text-slate-950"
-              >
-                {reopened
-                  ? "Preferências de cookies"
-                  : "Este site não pertence à Focus/Clinic All"}
-              </h2>
-            </div>
-          </div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <div className="flex items-start gap-3">
+          <span className="hidden h-10 w-10 flex-none items-center justify-center rounded-2xl bg-blue-50 text-blue-700 sm:flex">
+            <ShieldAlert className="h-5 w-5" aria-hidden="true" />
+          </span>
 
-          {!reopened && (
-            <div className="mt-6 space-y-4 text-sm leading-6 text-slate-600">
-              <p>
-                Esta plataforma é um material <strong>independente</strong>,
-                mantido por Samuel J. Santos, colaborador da Focus, com fins
-                informativos e de apoio na utilização do sistema. Não é canal
-                oficial da Focus/Clinic All e <strong>não oferece</strong>{" "}
-                suporte técnico, abertura de chamados ou atendimento
-                individualizado. Para demandas oficiais, utilize os{" "}
-                <strong>canais oficiais de atendimento</strong> da Focus.
-              </p>
-              <ul className="list-disc space-y-1 pl-5">
-                <li>
-                  Os materiais <strong>não podem</strong> ser baixados, copiados
-                  ou comercializados.
-                </li>
-                <li>
-                  O conteúdo pode ser adicionado, modificado ou removido{" "}
-                  <strong>sem aviso prévio</strong>.
-                </li>
-              </ul>
-              <p>
-                Ao usar esta plataforma, você declara estar ciente do seu
-                caráter independente e dos{" "}
+          <div className="text-sm leading-6 text-slate-600">
+            <p id="consent-title" className="font-bold text-slate-950">
+              {reopened
+                ? "Preferências de cookies"
+                : "Esta plataforma é independente"}
+            </p>
+
+            {adsMode ? (
+              <p className="mt-1">
+                {!reopened && (
+                  <>
+                    Não é canal oficial da Focus/Clinic All e não oferece
+                    suporte técnico.{" "}
+                  </>
+                )}
+                Para custear o site, usamos o Google AdSense, que utiliza
+                cookies e identificadores. Só ativamos se você aceitar, e você
+                pode mudar de ideia em &quot;Preferências de cookies&quot;, no
+                rodapé. Veja os{" "}
                 <Link href="/termos" className="font-bold underline">
                   Termos de Uso
+                </Link>{" "}
+                e a{" "}
+                <Link href="/privacidade" className="font-bold underline">
+                  Política de Privacidade
                 </Link>
                 .
               </p>
-            </div>
-          )}
-
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-            <p className="font-bold text-slate-950">Anúncios e cookies</p>
-            <p className="mt-1">
-              Para custear o site, usamos o Google AdSense, que utiliza cookies
-              e identificadores. Só ativamos se você aceitar, e você pode mudar
-              de ideia a qualquer momento em &quot;Preferências de
-              cookies&quot;, no rodapé. Veja a{" "}
-              <Link href="/privacidade" className="font-bold underline">
-                Política de Privacidade
-              </Link>
-              .
-            </p>
+            ) : (
+              <p className="mt-1">
+                Não é canal oficial da Focus/Clinic All e não oferece suporte
+                técnico. Este site não usa cookies de publicidade nem de
+                medição. Veja os{" "}
+                <Link href="/termos" className="font-bold underline">
+                  Termos de Uso
+                </Link>{" "}
+                e a{" "}
+                <Link href="/privacidade" className="font-bold underline">
+                  Política de Privacidade
+                </Link>
+                .
+              </p>
+            )}
           </div>
+        </div>
 
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => choose(false)}
-              className={choiceClass}
-            >
-              Recusar anúncios
-            </button>
-            <button
-              type="button"
-              onClick={() => choose(true)}
-              className={choiceClass}
-            >
-              Aceitar anúncios
-            </button>
-          </div>
+        <div className="flex flex-none flex-col gap-2">
+          {adsMode ? (
+            <>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => choose(false)}
+                  className={choiceClass}
+                >
+                  Recusar anúncios
+                </button>
+                <button
+                  type="button"
+                  onClick={() => choose(true)}
+                  className={choiceClass}
+                >
+                  Aceitar anúncios
+                </button>
+              </div>
 
-          {reopened && (
+              {reopened && (
+                <button
+                  type="button"
+                  onClick={close}
+                  className="text-center text-sm font-semibold text-slate-500 underline outline-none hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-blue-500"
+                >
+                  Fechar sem alterar
+                </button>
+              )}
+            </>
+          ) : (
             <button
               type="button"
-              onClick={close}
-              className="mt-3 w-full text-center text-sm font-semibold text-slate-500 underline outline-none hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-blue-500"
+              onClick={acceptNoticeOnly}
+              className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-slate-950 px-5 py-2 text-sm font-bold text-white outline-none hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500"
             >
-              Fechar sem alterar
+              Entendi e desejo continuar
             </button>
           )}
-        </section>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
