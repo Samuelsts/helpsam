@@ -1,5 +1,5 @@
-import { ShieldAlert } from "lucide-react";
 import Link from "next/link";
+import { ShieldAlert } from "lucide-react";
 
 export function DisclaimerBanner() {
   return (
@@ -12,10 +12,11 @@ export function DisclaimerBanner() {
         <p>
           Esta plataforma é independente e não oficial. O conteúdo é apenas
           auxiliar. Para suporte técnico, utilize os canais oficiais da Focus.
-          Consulte os Termos de Uso.{" "}
+          Consulte os{" "}
           <Link href="/termos" className="font-semibold underline">
             Termos de Uso
           </Link>
+          .
         </p>
       </div>
     </section>
