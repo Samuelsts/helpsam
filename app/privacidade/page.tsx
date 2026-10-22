@@ -16,7 +16,7 @@ const sections = [
   },
   {
     title: "2. Dados que tratamos",
-    body: "A plataforma não tem cadastro, login nem formulários. Tratamos apenas: (a) armazenamento local (localStorage), que fica somente no seu navegador e não é enviado a nenhum servidor: sua escolha entre Clinic All Web ou Desktop, a confirmação de leitura do aviso inicial e o registro da sua escolha sobre cookies (opção, data e versão); e (b) dados técnicos de acesso (endereço IP, navegador, páginas acessadas, data e hora), registrados pela infraestrutura de hospedagem descrita abaixo.",
+    body: "A plataforma não tem cadastro, login nem formulários. Tratamos apenas: (a) armazenamento local (localStorage), que fica somente no seu navegador e não é enviado a nenhum servidor: sua escolha entre Clinic All Web ou Desktop, a confirmação de leitura do aviso inicial e o registro da sua escolha sobre cookies (opção, data e versão) e, se você recusar os anúncios, um contador de visitas, usado só para decidir quando perguntar de novo; e (b) dados técnicos de acesso (endereço IP, navegador, páginas acessadas, data e hora), registrados pela infraestrutura de hospedagem descrita abaixo.",
   },
   {
     title: "3. Infraestrutura",
@@ -40,7 +40,7 @@ const sections = [
   },
   {
     title: "8. Por quanto tempo",
-    body: "O que fica no seu navegador permanece até você limpar os dados do site. Sua escolha sobre cookies é solicitada novamente após 12 meses ou quando esta política mudar de forma relevante. Esta plataforma não mantém banco de dados.",
+    body: "O que fica no seu navegador permanece até você limpar os dados do site. Sua escolha sobre cookies é solicitada novamente após 12 meses ou quando esta política mudar de forma relevante. Se você recusar os anúncios, podemos perguntar mais uma vez depois de algumas visitas e de pelo menos 30 dias, mas a sua recusa continua valendo até você aceitar. Esta plataforma não mantém banco de dados.",
   },
   {
     title: "9. Seus direitos (LGPD)",
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
                 Entenda como esta plataforma trata (ou não trata) seus dados.
               </p>
               <p className="mt-4 text-sm font-semibold text-slate-500">
-                Última atualização: 20/10/2026
+                Última atualização: 22/10/2026
               </p>
             </div>
           </div>

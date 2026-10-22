@@ -1,12 +1,18 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { ShieldAlert } from "lucide-react";
-import { useEffect, useState } from "react";
-import { readConsent, saveConsent } from "@/lib/consent";
+import Link from 'next/link';
+import { ShieldAlert } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import {
+  countVisit,
+  readConsent,
+  saveConsent,
+  shouldReconsider,
+  snoozeReconsider,
+} from '@/lib/consent';
 
 const ADS_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-const NOTICE_KEY = "focusIndependentNoticeAccepted";
+const NOTICE_KEY = 'focusIndependentNoticeAccepted';
 
 declare global {
   interface Window {
@@ -16,7 +22,7 @@ declare global {
 
 function hasNotice(): boolean {
   try {
-    return localStorage.getItem(NOTICE_KEY) === "true";
+    return localStorage.getItem(NOTICE_KEY) === 'true';
   } catch {
     return false;
   }
@@ -24,13 +30,13 @@ function hasNotice(): boolean {
 
 function saveNotice(): void {
   try {
-    localStorage.setItem(NOTICE_KEY, "true");
+    localStorage.setItem(NOTICE_KEY, 'true');
   } catch {}
 }
 
 function setAdsConsent(granted: boolean) {
-  const v = granted ? "granted" : "denied";
-  window.gtag?.("consent", "update", {
+  const v = granted ? 'granted' : 'denied';
+  window.gtag?.('consent', 'update', {
     ad_storage: v,
     ad_user_data: v,
     ad_personalization: v,
@@ -38,18 +44,18 @@ function setAdsConsent(granted: boolean) {
 }
 
 function loadAdsScript() {
-  if (!ADS_CLIENT || document.getElementById("adsense-js")) return;
-  const s = document.createElement("script");
-  s.id = "adsense-js";
+  if (!ADS_CLIENT || document.getElementById('adsense-js')) return;
+  const s = document.createElement('script');
+  s.id = 'adsense-js';
   s.async = true;
-  s.crossOrigin = "anonymous";
+  s.crossOrigin = 'anonymous';
   s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`;
   document.head.appendChild(s);
 }
 
 function clearAdCookies() {
-  const names = ["__gads", "__gpi", "__eoi"];
-  const root = "." + location.hostname.split(".").slice(-3).join(".");
+  const names = ['__gads', '__gpi', '__eoi'];
+  const root = '.' + location.hostname.split('.').slice(-3).join('.');
   for (const n of names) {
     for (const d of [location.hostname, root]) {
       document.cookie = `${n}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${d}`;
@@ -61,11 +67,12 @@ function clearAdCookies() {
 // Os dois botões usam exatamente a mesma classe: recusar não pode ser
 // visualmente mais difícil do que aceitar (Guia de Cookies da ANPD).
 const choiceClass =
-  "inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border-2 border-slate-950 bg-white px-5 py-2 text-sm font-bold text-slate-950 outline-none hover:bg-slate-950 hover:text-white focus-visible:ring-2 focus-visible:ring-blue-500 sm:flex-none";
+  'inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border-2 border-slate-950 bg-white px-5 py-2 text-sm font-bold text-slate-950 outline-none hover:bg-slate-950 hover:text-white focus-visible:ring-2 focus-visible:ring-blue-500 sm:flex-none';
 
 export default function ConsentBanner() {
   const [open, setOpen] = useState(false);
   const [reopened, setReopened] = useState(false);
+  const [reconsider, setReconsider] = useState(false);
 
   useEffect(() => {
     if (!ADS_CLIENT) {
@@ -75,18 +82,29 @@ export default function ConsentBanner() {
     }
 
     const consent = readConsent();
-    if (!consent) setOpen(true);
-    else if (consent.ads) {
+    if (!consent) {
+      setOpen(true);
+    } else if (consent.ads) {
       setAdsConsent(true);
       loadAdsScript();
+    } else {
+      // Recusou antes: a recusa continua valendo. Só voltamos a perguntar
+      // depois de várias visitas e de bastante tempo, e uma vez só.
+      const counted = countVisit(consent);
+      if (shouldReconsider(counted)) {
+        snoozeReconsider(counted);
+        setReconsider(true);
+        setOpen(true);
+      }
     }
 
     const reopen = () => {
+      setReconsider(false);
       setReopened(true);
       setOpen(true);
     };
-    window.addEventListener("open-consent", reopen);
-    return () => window.removeEventListener("open-consent", reopen);
+    window.addEventListener('open-consent', reopen);
+    return () => window.removeEventListener('open-consent', reopen);
   }, []);
 
   function acceptNoticeOnly() {
@@ -98,24 +116,32 @@ export default function ConsentBanner() {
     saveConsent(ads);
     setOpen(false);
     setReopened(false);
+    setReconsider(false);
     setAdsConsent(ads);
     if (ads) {
       loadAdsScript();
     } else {
       clearAdCookies();
       // um script já carregado não pode ser "descarregado": recarrega a página
-      if (document.getElementById("adsense-js")) location.reload();
+      if (document.getElementById('adsense-js')) location.reload();
     }
   }
 
   function close() {
     setOpen(false);
     setReopened(false);
+    setReconsider(false);
   }
 
   if (!open) return null;
 
   const adsMode = Boolean(ADS_CLIENT);
+
+  const title = reconsider
+    ? 'Quer reconsiderar os anúncios?'
+    : reopened
+      ? 'Preferências de cookies'
+      : 'Esta plataforma é independente';
 
   return (
     <section
@@ -131,27 +157,35 @@ export default function ConsentBanner() {
 
           <div className="text-sm leading-6 text-slate-600">
             <p id="consent-title" className="font-bold text-slate-950">
-              {reopened
-                ? "Preferências de cookies"
-                : "Esta plataforma é independente"}
+              {title}
             </p>
 
-            {adsMode ? (
+            {adsMode && reconsider ? (
+              <p className="mt-1">
+                Você recusou os anúncios antes, e essa escolha continua
+                valendo. Se quiser ajudar a custear o site, pode aceitar agora.
+                Se preferir, mantenha a recusa: o conteúdo é o mesmo. Veja a{' '}
+                <Link href="/privacidade" className="font-bold underline">
+                  Política de Privacidade
+                </Link>
+                .
+              </p>
+            ) : adsMode ? (
               <p className="mt-1">
                 {!reopened && (
                   <>
                     Não é canal oficial da Focus/Clinic All e não oferece
-                    suporte técnico.{" "}
+                    suporte técnico.{' '}
                   </>
                 )}
                 Para custear o site, usamos o Google AdSense, que utiliza
                 cookies e identificadores. Só ativamos se você aceitar, e você
                 pode mudar de ideia em &quot;Preferências de cookies&quot;, no
-                rodapé. Veja os{" "}
+                rodapé. Veja os{' '}
                 <Link href="/termos" className="font-bold underline">
                   Termos de Uso
-                </Link>{" "}
-                e a{" "}
+                </Link>{' '}
+                e a{' '}
                 <Link href="/privacidade" className="font-bold underline">
                   Política de Privacidade
                 </Link>
@@ -161,11 +195,11 @@ export default function ConsentBanner() {
               <p className="mt-1">
                 Não é canal oficial da Focus/Clinic All e não oferece suporte
                 técnico. Este site não usa cookies de publicidade nem de
-                medição. Veja os{" "}
+                medição. Veja os{' '}
                 <Link href="/termos" className="font-bold underline">
                   Termos de Uso
-                </Link>{" "}
-                e a{" "}
+                </Link>{' '}
+                e a{' '}
                 <Link href="/privacidade" className="font-bold underline">
                   Política de Privacidade
                 </Link>
@@ -184,7 +218,7 @@ export default function ConsentBanner() {
                   onClick={() => choose(false)}
                   className={choiceClass}
                 >
-                  Recusar anúncios
+                  {reconsider ? 'Manter recusa' : 'Recusar anúncios'}
                 </button>
                 <button
                   type="button"
