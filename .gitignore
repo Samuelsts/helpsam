@@ -25,3 +25,10 @@ Thumbs.db
 .vscode/
 .idea/
 *.tsbuildinfo
+
+# Next.js (gerado automaticamente)
+next-env.d.ts
+
+# Variantes de .env (exceto o exemplo)
+.env.*
+!.env.example
