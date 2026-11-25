@@ -1170,6 +1170,86 @@ export const tutorials: Tutorial[] = [
     ],
   },
   {
+    id: "web-016",
+    slug: "perfil-permissoes-acesso-restricoes-bloqueio-web",
+    title: "Perfil, permissões e restrições no Clinic All Web",
+    description:
+      "Saiba como gerenciar o controle de acesso no Clinic All Web. Configure perfis personalizados.",
+    app: "web",
+    category: "Operacional",
+    level: "intermediário",
+    duration: "3 min",
+    youtubeId: "P1nbXpNMtjw",
+    hasImageTutorial: false,
+    summary:
+      "Veja como criar um perfil de acesso e como liberar ou bloquear módulos, submódulos, transações e componentes de um perfil existente no Clinic All Web.",
+    steps: [
+      {
+        title: "Acesse a lista de perfis",
+        text: "No menu, vá em Cadastro, Segurança, Perfil. O sistema mostra todos os perfis que já estão cadastrados.",
+      },
+      {
+        title: "Clique em Novo",
+        text: "Para criar um perfil, use o botão Novo. Se quiser, aproveite as permissões-base de um perfil já criado como ponto de partida para o novo.",
+      },
+      {
+        title: "Informe nome e descrição",
+        text: "Digite o nome do perfil e a descrição. Depois, clique em Salvar.",
+      },
+      {
+        title: "Abra as permissões de um perfil",
+        text: "Para editar um perfil existente, como o da recepção, localize a linha dele e clique no ícone do escudo. O sistema lista os módulos desse perfil.",
+      },
+      {
+        title: "Bloqueie ou libere módulos",
+        text: "Clique no ícone do cadeado ao lado do módulo para alternar o acesso. Cadeado vermelho indica que o perfil não acessa o módulo; cadeado preto indica acesso liberado.",
+      },
+      {
+        title: "Abra os submódulos",
+        text: "Clique no nome do módulo para exibir os submódulos. Dentro deles, as permissões são configuradas da mesma forma.",
+      },
+      {
+        title: "Configure as transações",
+        text: "No submódulo, clique no ícone de engrenagem para ver as transações. Cada uma pode ser bloqueada ou desbloqueada.",
+      },
+      {
+        title: "Aplique restrições nos componentes",
+        text: "Ainda no submódulo, clique no ícone dos componentes para ver os componentes dele. Ali também é possível aplicar restrições.",
+      },
+      {
+        title: "Salve as configurações",
+        text: "Depois de ajustar módulos, submódulos, transações ou componentes, clique no ícone da nuvem para gravar as alterações.",
+      },
+      {
+        title: "Consulte os usuários do perfil",
+        text: "Clique no ícone de usuários para ver quais usuários cadastrados estão vinculados ao perfil que você está editando.",
+      },
+    ],
+    tips: [
+      "Cadeado vermelho significa sem acesso ao módulo; cadeado preto significa acesso liberado.",
+      "As restrições podem ser definidas em quatro níveis: módulos, submódulos, transações e componentes.",
+      "Ao criar um perfil novo, você pode reaproveitar as permissões-base de outro perfil já cadastrado.",
+      "Para gravar as restrições de um perfil existente, use o ícone da nuvem depois de terminar os ajustes.",
+    ],
+    faq: [
+      {
+        question: "Como descubro quem usa determinado perfil?",
+        answer:
+          "Na lista de perfis, clique no ícone de usuários da linha do perfil. O sistema mostra os usuários vinculados a ele.",
+      },
+      {
+        question: "Preciso começar um perfil do zero?",
+        answer:
+          "Não necessariamente. Ao criar um perfil novo, o vídeo mostra que é possível copiar as permissões-base de um perfil já criado.",
+      },
+      {
+        question: "Como libero um módulo que está bloqueado?",
+        answer:
+          "Clique no ícone do cadeado do módulo. Quando ele ficar preto, o acesso está liberado.",
+      },
+    ],
+  },
+  {
     id: "desktop-001",
     slug: "como-cadastrar-paciente",
     title: "Como cadastrar paciente",
